@@ -1,17 +1,19 @@
 require "fjira/version"
 require 'feedjira'
-require 'constants/constants'
+require 'feed'
+require 'cli_printer'
 
 module Fjira
 
-  class Hindu
-
-    def self.feed
-      feed = Feedjira::Feed.fetch_and_parse(FEEDS[:hindu])
-      feed.entries.each do |entry|
-        puts entry.title
-      end
+  def self.feeds
+    content_sources = FEEDS.keys
+    feeds = []
+    content_sources.each do |source|
+      feeds << Feed.new(source.to_sym)
     end
-
+    feeds
   end
+
+  CLIPrinter.print self.feeds
+
 end
