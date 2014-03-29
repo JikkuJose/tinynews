@@ -1,12 +1,14 @@
+require 'rainbow'
+
 module TinyNews
 
   class CLIPrinter
 
     def self.print feeds
       feeds.each do |feed_object|
-        puts "\n#{feed_object.title}:"
-        feed_object.stories[1..10].each do |story|
-          puts "- #{story}"
+        puts "\n#{feed_object.title.color(:blue)}:"
+        feed_object.stories.each do |story|
+          puts "-".color(:yellow) + " #{story}"
         end
       end
     end
