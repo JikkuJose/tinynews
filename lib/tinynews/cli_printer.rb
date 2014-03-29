@@ -1,4 +1,4 @@
-module Fjira
+module TinyNews
 
   class CLIPrinter
 

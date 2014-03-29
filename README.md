@@ -1,12 +1,11 @@
-# Fjira
+# TinyNews
 
-TODO: Write a gem description
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'fjira'
+    gem 'tinynews'
 
 And then execute:
 
@@ -14,15 +13,16 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install fjira
+    $ gem install tinynews
 
 ## Usage
 
-TODO: Write usage instructions here
+### CLI
+Try tinynews --help for help.
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/fjira/fork )
+1. Fork it ( http://github.com/JikkuJose/tinynews/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

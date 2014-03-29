@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'fjira/version'
+require 'tinynews/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "fjira"
-  spec.version       = Fjira::VERSION
+  spec.name          = "tinynews"
+  spec.version       = TinyNews::VERSION
   spec.authors       = ["Jikku Jose"]
   spec.email         = ["jikku+home@qucentis.com"]
-  spec.summary       = %q{Gem to test feedjira}
-  spec.description   = %q{Attempt to create my news tool}
+  spec.summary       = %q{News RSS gist viewer}
+  spec.description   = %q{A simple gem to extract title of News RSS feeds for quick glance of news from various sources that can be configured.}
   spec.homepage      = ""
   spec.license       = "MIT"
 

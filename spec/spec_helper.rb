@@ -1,1 +1,1 @@
-require 'fjira'
+require 'tinynews'

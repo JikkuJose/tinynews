@@ -1,6 +1,6 @@
 require 'feedjira'
 
-module Fjira
+module TinyNews
 
   class Feed
     attr_reader :title, :stories

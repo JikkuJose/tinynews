@@ -1,3 +1,3 @@
-module Fjira
+module TinyNews
   VERSION = "0.0.2"
 end
