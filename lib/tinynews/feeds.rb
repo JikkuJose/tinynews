@@ -17,13 +17,19 @@ module TinyNews
         @sources.keys.each do |symbol|
           feeds << generate_feed_object_for( symbol )
         end
-      else
+      when *@sources.keys
         feeds << generate_feed_object_for( source_symbol )
+      else
+        source_unavailable source_symbol
       end
       feeds
     end
 
     private
+
+    def source_unavailable source_symbol
+      puts "Sorry, specified source: '#{source_symbol}' is unavailable"
+    end
 
     def generate_feed_object_for feed_symbol
       source = @sources[feed_symbol]

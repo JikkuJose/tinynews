@@ -4,7 +4,7 @@ require 'tinynews/cli_printer'
 
 module TinyNews
 
-  def self.print_in_cli feed_symbol
+  def self.print_to_cli feed_symbol
     CLIPrinter.print( get_feed(feed_symbol) )
   end
 
