@@ -1,5 +1,5 @@
 # TinyNews
-
+A simple gem built to see the titles of various news feeds very easily. Mostly a quick and dirty version now. Probably will be refining it.
 
 ## Installation
 
@@ -17,8 +17,19 @@ Or install it yourself as:
 
 ## Usage
 
-### CLI
-Try tinynews --help for help.
+### CLI (nothing else for now)
+
+Standard use:
+
+    $ tinynews --NEWS_SOURCE # example: tinynews --bbc
+
+Further info: (Nothing pretty much ;))
+
+    $ tinynews --help for help.
+
+## Todo:
+
+1. Providing a configuration file in the home directory to configure news sources.
 
 ## Contributing
 

@@ -4,44 +4,33 @@ require 'thor'
 require 'yaml'
 require 'tinynews'
 
-class TinyNewsCLI < Thor
-  attr_reader :sources
-  @sources = {}
 
-  def initialize *args
-    super
-    f = File.open( "sources.yml", "r" ).read
-    @sources = YAML::load( f )
-  end
+module TinyNews
 
-  desc "list", "Lists the available news feeds."
-  def list
-    puts "List of news feed sources: "
-    @sources.each do |symbol, source|
-      puts "- #{source[:title]}"
+  f = File.open( "sources.yml", "r" ).read
+  SOURCES = YAML::load( f )
+
+  class TinyNewsCLI < Thor
+
+    desc "list", "Lists the available news feeds."
+    def list
+      puts "List of news feed sources: "
+      SOURCES.each do |symbol, source|
+        puts "- #{source[:title]}"
+      end
     end
-  end
 
-  desc "show --source SOURCE", "Show news from SOURCE feed"
-  option :source, :required => true
-  def show
-    if options[:source]
-      TinyNews.print_to_cli( options[:source].to_sym )
+    desc "--NEWS_SOURCE", "Show news for NEWS_SOURCE"
+    SOURCES.keys.each do |source_symbol|
+      option source_symbol, :type => :boolean
     end
-  end
+    def news_from_option
+      TinyNews.print_to_cli( options.keys.last.to_sym )
+    end
 
-  desc "tinynews --NEWS_SOURCE", "Show news for NEWS_SOURCE"
-  @sources.keys.each do |source_symbol|
-    #[:hindu, :cnn, :bbc].each do |source_symbol|
-    option source_symbol, :type => :boolean
-  end
-  def news_from_option
-    p @sources.keys
-    TinyNews.print_to_cli( options.keys.last.to_sym )
-  end
+    default_task :news_from_option
 
-  default_task :news_from_option
-
+  end
 end
 
-TinyNewsCLI.start( ARGV )
+TinyNews::TinyNewsCLI.start( ARGV )
