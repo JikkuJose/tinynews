@@ -7,7 +7,7 @@ require 'tinynews'
 
 module TinyNews
 
-  f = File.open( "sources.yml", "r" ).read
+  f = File.open( "../sources.yml", "r" ).read
   SOURCES = YAML::load( f )
 
   class TinyNewsCLI < Thor
