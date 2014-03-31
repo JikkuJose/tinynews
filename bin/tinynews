@@ -12,6 +12,8 @@ module TinyNews
 
   class TinyNewsCLI < Thor
 
+    default_task :news_from_source
+
     desc "list", "Lists the available news feeds."
     def list
       puts "List of news feed sources: "
@@ -20,17 +22,13 @@ module TinyNews
       end
     end
 
-    desc "--NEWS_SOURCE", "Show news for NEWS_SOURCE"
-    SOURCES.keys.each do |source_symbol|
-      option source_symbol, :type => :boolean
+    desc "--source NEWS_SOURCE", "Show news for NEWS_SOURCE"
+    option :source, :required => true, :aliases => :s
+    def news_from_source
+      TinyNews.print_to_cli( options[:source].to_sym )
     end
-    def news_from_option
-      TinyNews.print_to_cli( options.keys.last.to_sym )
-    end
-
-    default_task :news_from_option
-
   end
+
 end
 
 TinyNews::TinyNewsCLI.start( ARGV )
