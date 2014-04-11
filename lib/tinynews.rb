@@ -17,4 +17,19 @@ module TinyNews
     CLIPrinter.print( get_feed(feed_symbol) )
   end
 
+  def self.say_hello
+    puts "Hello"
+  end
+
+  def self.sources_from_home
+    source_file = File.expand_path('~/.tinynews.yml')
+    unless File.file?( source_file )
+      File.open( source_file, "w") do |f|
+        f.write( File.open("./sources.yml", "r").read )
+      end
+    end
+    f = open(source_file, "r").read
+    YAML::load( f )
+  end
+
 end

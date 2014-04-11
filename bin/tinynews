@@ -4,13 +4,11 @@ require 'thor'
 require 'yaml'
 require 'tinynews'
 
-
 module TinyNews
 
-  f = File.open( "../sources.yml", "r" ).read
-  SOURCES = YAML::load( f )
+  SOURCES = TinyNews.sources_from_home
 
-  class TinyNewsCLI < Thor
+  class CLI < Thor
 
     default_task :news_from_source
 
@@ -31,4 +29,4 @@ module TinyNews
 
 end
 
-TinyNews::TinyNewsCLI.start( ARGV )
+TinyNews::CLI.start( ARGV )

@@ -1,3 +1,4 @@
+require 'tinynews'
 require 'tinynews/feed'
 require 'yaml'
 
@@ -6,8 +7,7 @@ module TinyNews
   class Feeds
 
     def initialize
-      sources_file = File.open('sources.yml', 'r').read
-      @sources = YAML::load( sources_file ) 
+      @sources = TinyNews.sources_from_home
     end
 
     def generate source_symbol
