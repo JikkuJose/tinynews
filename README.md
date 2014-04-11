@@ -23,9 +23,8 @@ Further info: (Nothing pretty much ;))
 
 ## Todo:
 
-1. Providing a configuration file in the home directory to configure news sources.
-2. Provide better help
-3. Format list command to include the options better.
+1. Provide better help
+2. Format list command to include the options better.
 
 ## Contributing
 
